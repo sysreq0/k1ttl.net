@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>K1TTL — Sebastien Couture · Amateur Radio Station</title>
 
-  <meta name="description" content="K1TTL — Amateur radio station operated by Sebastien Couture from Cary, North Carolina. General class license, grid FM05os.">
+  <meta name="description" content="K1TTL — Amateur radio station operated by Sebastien Couture from Raleigh, North Carolina. General class license, grid FM05os.">
   <meta name="author" content="Sebastien Couture, K1TTL">
   <meta property="og:title" content="K1TTL · Sebastien Couture">
-  <meta property="og:description" content="Amateur radio station in Cary, North Carolina · Grid FM05os">
+  <meta property="og:description" content="Amateur radio station in Raleigh, North Carolina · Grid FM05os">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://k1ttl.net">
 
@@ -116,6 +116,16 @@
       right: 0;
       width: 100%;
       height: 95px;
+    }
+
+    /* Satellite */
+    .sat {
+      position: absolute;
+      top: 16px;
+      right: 45px;
+      pointer-events: none;
+      transform: rotate(45deg);
+      transform-origin: 40px 20px;
     }
 
     /* Header footer bar */
@@ -286,6 +296,24 @@
     .bc .b { font-family: Orbitron, sans-serif; font-size: 13px; color: #e8c84a; font-weight: 700; }
     .bc .m { font-size: 9px; color: #88aaff; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
 
+    /* Profile buttons */
+    .prof { display: flex; gap: 8px; flex-wrap: wrap; }
+    .prof-btn {
+      font-family: Share Tech Mono, monospace;
+      font-size: 11px;
+      color: #88aaff;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      background: linear-gradient(160deg, #0d1a35, #06091a);
+      border: 1px solid #1e3a6a;
+      border-radius: 3px;
+      padding: 7px 14px;
+      text-decoration: none;
+      display: inline-block;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .prof-btn:hover { border-color: #4a9eff; color: #e8c84a; }
+
     /* Footer */
     .ft {
       padding: 22px 36px;
@@ -323,6 +351,11 @@
       <svg class="sk" viewBox="0 0 980 145" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
         <rect x="0" y="125" width="980" height="20" fill="#0a1e35"/>
 
+        <!-- Area captions -->
+        <text x="115" y="138" font-family="Share Tech Mono,monospace" font-size="7.5" fill="#4a9eff" opacity="0.7" text-anchor="middle" letter-spacing="1.5">CAPE HATTERAS</text>
+        <text x="420" y="138" font-family="Share Tech Mono,monospace" font-size="7.5" fill="#4a9eff" opacity="0.7" text-anchor="middle" letter-spacing="1.5">RALEIGH, NC</text>
+        <text x="840" y="138" font-family="Share Tech Mono,monospace" font-size="7.5" fill="#4a9eff" opacity="0.7" text-anchor="middle" letter-spacing="1.5">BLUE RIDGE MTNS</text>
+
         <!-- Lighthouse / tower group -->
         <g transform="translate(80,0)">
           <rect x="0"   y="105" width="36" height="20" fill="#1a2a3a"/>
@@ -335,6 +368,25 @@
           <rect x="7"   y="32"  width="20" height="12" fill="#aaddff"/>
           <rect x="5"   y="30"  width="24" height="4"  fill="#556677"/>
           <circle cx="17" cy="36" r="7" fill="#ffc" opacity="0.75"/>
+        </g>
+
+        <!-- Radio tower — lighthouse area -->
+        <g opacity="0.9">
+          <polygon points="152,65 158,65 161,125 149,125" fill="#0d1e33" stroke="#3a7aaa" stroke-width="0.8"/>
+          <line x1="150" y1="78" x2="160" y2="78" stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="150" y1="92" x2="160" y2="92" stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="150" y1="106" x2="160" y2="106" stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="150" y1="78" x2="160" y2="92"  stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="160" y1="78" x2="150" y2="92"  stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="150" y1="92" x2="160" y2="106" stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="160" y1="92" x2="150" y2="106" stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="155" y1="65" x2="155" y2="36" stroke="#4a9eff" stroke-width="1.3"/>
+          <line x1="147" y1="42" x2="163" y2="42" stroke="#4a9eff" stroke-width="1"/>
+          <line x1="149" y1="49" x2="161" y2="49" stroke="#4a9eff" stroke-width="0.8"/>
+          <line x1="151" y1="56" x2="159" y2="56" stroke="#4a9eff" stroke-width="0.7"/>
+          <circle cx="155" cy="36" r="1.8" fill="#ff3333"/>
+          <line x1="155" y1="48" x2="130" y2="118" stroke="#4a9eff" stroke-width="0.5" opacity="0.35"/>
+          <line x1="155" y1="48" x2="180" y2="118" stroke="#4a9eff" stroke-width="0.5" opacity="0.35"/>
         </g>
 
         <!-- City buildings -->
@@ -395,10 +447,87 @@
           <rect x="478" y="76" width="3" height="3"/>
         </g>
 
+        <!-- Radio tower — Raleigh skyline -->
+        <g opacity="0.9">
+          <polygon points="624,52 632,52 636,125 620,125" fill="#0d1e33" stroke="#3a7aaa" stroke-width="0.8"/>
+          <line x1="621" y1="66"  x2="635" y2="66"  stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="621" y1="80"  x2="635" y2="80"  stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="621" y1="94"  x2="635" y2="94"  stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="622" y1="108" x2="634" y2="108" stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="621" y1="66"  x2="635" y2="80"  stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="635" y1="66"  x2="621" y2="80"  stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="621" y1="80"  x2="635" y2="94"  stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="635" y1="80"  x2="621" y2="94"  stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="621" y1="94"  x2="635" y2="108" stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="635" y1="94"  x2="621" y2="108" stroke="#3a7aaa" stroke-width="0.5" opacity="0.6"/>
+          <line x1="628" y1="52"  x2="628" y2="16"  stroke="#4a9eff" stroke-width="1.5"/>
+          <line x1="618" y1="23"  x2="638" y2="23"  stroke="#4a9eff" stroke-width="1.1"/>
+          <line x1="621" y1="31"  x2="635" y2="31"  stroke="#4a9eff" stroke-width="0.9"/>
+          <line x1="623" y1="39"  x2="633" y2="39"  stroke="#4a9eff" stroke-width="0.8"/>
+          <circle cx="628" cy="16" r="2" fill="#ff3333"/>
+          <path d="M 614,16 A 14,9  0 0 1 642,16" fill="none" stroke="#4a9eff" stroke-width="1"   opacity="0.6"/>
+          <path d="M 607,16 A 21,14 0 0 1 649,16" fill="none" stroke="#4a9eff" stroke-width="0.8" opacity="0.4"/>
+          <path d="M 600,16 A 28,18 0 0 1 656,16" fill="none" stroke="#4a9eff" stroke-width="0.6" opacity="0.25"/>
+          <line x1="628" y1="30" x2="598" y2="118" stroke="#4a9eff" stroke-width="0.6" opacity="0.35"/>
+          <line x1="628" y1="30" x2="658" y2="118" stroke="#4a9eff" stroke-width="0.6" opacity="0.35"/>
+        </g>
+
         <!-- Hills / background -->
         <polygon points="700,125 720,68 745,86 770,55 795,80 825,42 860,72 895,55 930,75 980,68 980,125" fill="#0a1828"/>
         <polygon points="710,125 730,80 750,98 770,72 795,92 820,62 855,86 885,72 920,90 980,80 980,125" fill="#0c1e30"/>
+
+        <!-- Radio tower — mountain peak (drawn on top of hills) -->
+        <g opacity="0.9">
+          <polygon points="822,15 827,15 830,42 819,42" fill="#0d1e33" stroke="#3a7aaa" stroke-width="0.7"/>
+          <line x1="820" y1="22" x2="829" y2="22" stroke="#3a7aaa" stroke-width="0.6"/>
+          <line x1="820" y1="30" x2="829" y2="30" stroke="#3a7aaa" stroke-width="0.6"/>
+          <line x1="820" y1="22" x2="829" y2="30" stroke="#3a7aaa" stroke-width="0.4" opacity="0.6"/>
+          <line x1="829" y1="22" x2="820" y2="30" stroke="#3a7aaa" stroke-width="0.4" opacity="0.6"/>
+          <line x1="824" y1="15" x2="824" y2="-8" stroke="#4a9eff" stroke-width="1.3"/>
+          <line x1="816" y1="-2" x2="832" y2="-2" stroke="#4a9eff" stroke-width="1"/>
+          <line x1="818" y1="5"  x2="830" y2="5"  stroke="#4a9eff" stroke-width="0.8"/>
+          <circle cx="824" cy="-8" r="1.8" fill="#ff3333"/>
+          <path d="M 812,-8 A 12,8  0 0 1 836,-8" fill="none" stroke="#4a9eff" stroke-width="0.9" opacity="0.6"/>
+          <path d="M 806,-8 A 18,12 0 0 1 842,-8" fill="none" stroke="#4a9eff" stroke-width="0.7" opacity="0.35"/>
+          <line x1="824" y1="4" x2="806" y2="40" stroke="#4a9eff" stroke-width="0.5" opacity="0.4"/>
+          <line x1="824" y1="4" x2="842" y2="40" stroke="#4a9eff" stroke-width="0.5" opacity="0.4"/>
+        </g>
       </svg>
+      <!-- Satellite (floats in header sky beside callsign) -->
+      <svg class="sat" width="80" height="125" viewBox="0 0 80 125" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left solar panel -->
+        <rect x="4"  y="17" width="24" height="5" fill="#0d1e3a" stroke="#4a9eff" stroke-width="0.7"/>
+        <line x1="10" y1="17" x2="10" y2="22" stroke="#4a9eff" stroke-width="0.5" opacity="0.7"/>
+        <line x1="17" y1="17" x2="17" y2="22" stroke="#4a9eff" stroke-width="0.5" opacity="0.7"/>
+        <line x1="23" y1="17" x2="23" y2="22" stroke="#4a9eff" stroke-width="0.5" opacity="0.7"/>
+        <!-- Right solar panel -->
+        <rect x="52" y="17" width="24" height="5" fill="#0d1e3a" stroke="#4a9eff" stroke-width="0.7"/>
+        <line x1="58" y1="17" x2="58" y2="22" stroke="#4a9eff" stroke-width="0.5" opacity="0.7"/>
+        <line x1="65" y1="17" x2="65" y2="22" stroke="#4a9eff" stroke-width="0.5" opacity="0.7"/>
+        <line x1="71" y1="17" x2="71" y2="22" stroke="#4a9eff" stroke-width="0.5" opacity="0.7"/>
+        <!-- Panel support struts -->
+        <line x1="28" y1="19" x2="4"  y2="19" stroke="#4a9eff" stroke-width="0.5"/>
+        <line x1="52" y1="19" x2="76" y2="19" stroke="#4a9eff" stroke-width="0.5"/>
+        <!-- Body -->
+        <rect x="28" y="13" width="24" height="13" fill="#162e48" stroke="#4a9eff" stroke-width="1"/>
+        <!-- Status light -->
+        <circle cx="36" cy="20" r="2.5" fill="#e8c84a" opacity="0.9"/>
+        <!-- Comm detail -->
+        <rect x="48" y="15" width="3" height="4" fill="#4a9eff" opacity="0.5"/>
+        <!-- Dish arm -->
+        <line x1="40" y1="26" x2="40" y2="34" stroke="#4a9eff" stroke-width="1"/>
+        <!-- Dish cup -->
+        <path d="M 33,34 A 7,3.5 0 0 0 47,34" fill="none" stroke="#4a9eff" stroke-width="1.2"/>
+        <!-- Signal beam rays -->
+        <line x1="40" y1="34" x2="18" y2="115" stroke="#4a9eff" stroke-width="0.9" opacity="0.45" stroke-dasharray="5,6"/>
+        <line x1="40" y1="34" x2="40" y2="115" stroke="#4a9eff" stroke-width="0.9" opacity="0.45" stroke-dasharray="5,6"/>
+        <line x1="40" y1="34" x2="62" y2="115" stroke="#4a9eff" stroke-width="0.9" opacity="0.45" stroke-dasharray="5,6"/>
+        <!-- Beam arcs (fading with distance) -->
+        <path d="M 23,62  Q 40,57  57,62"  fill="none" stroke="#4a9eff" stroke-width="0.8" opacity="0.42"/>
+        <path d="M 20,85  Q 40,79  60,85"  fill="none" stroke="#4a9eff" stroke-width="0.7" opacity="0.28"/>
+        <path d="M 17,108 Q 40,101 63,108" fill="none" stroke="#4a9eff" stroke-width="0.6" opacity="0.16"/>
+      </svg>
+
     </div><!-- /.h -->
 
     <!-- Main content grid -->
@@ -416,7 +545,8 @@
           <ul class="bl-list">
             <li>Emergency and auxiliary communications</li>
             <li>Digital modes (FT8, FT4, JS8Call, Winlink)</li>
-            <li>Parks On The Air and Summits On The Air (POTA / SOTA)</li>
+            <li>Parks On The Air (POTA) / Summits On The Air (SOTA)</li>
+            <li>Amateur radio satellite communications</li>
             <li>Off-grid and portable station setups</li>
           </ul>
         </div>
@@ -426,9 +556,20 @@
           <div class="st">Station Setup</div>
           <div class="sg">
             <div class="l">Radio(s)</div>   <div class="v">Yaesu FT-891 (100W) · Xiegu G90 (50W) · (tr)uSDX (5W)</div>
-            <div class="l">Antenna(s)</div> <div class="v">ATAS-120A · JPC-7 · Spooltenna</div>
+            <div class="l">Antenna(s)</div> <div class="v">ATAS-120A · GRA-7350T · JPC-7 · Spooltenna</div>
             <div class="l">Logger(s)</div>  <div class="v">HAMRS Pro · World Radio League</div>
             <div class="l">Digital</div> <div class="v">FT8 · FT4 · JS8Call</div>
+          </div>
+        </div>
+
+        <!-- Profiles -->
+        <div class="sec">
+          <div class="st">Profiles</div>
+          <div class="prof">
+            <a class="prof-btn" href="https://www.qrz.com/db/K1TTL">QRZ</a>
+            <a class="prof-btn" href="https://pota.app/#/profile/K1TTL">POTA</a>
+            <a class="prof-btn" href="https://ft8battle.com/player.php?call=K1TTL">FT8 Battle</a>
+            <a class="prof-btn" href="https://www.eqsl.cc/Member.cfm?K1TTL">eQSL</a>
           </div>
         </div>
 
@@ -445,12 +586,6 @@
             <div class="bc"><div class="b">12</div><div class="m">Meters</div></div>
             <div class="bc"><div class="b">10</div><div class="m">Meters</div></div>
           </div>
-        </div>
-
-        <!-- QSL Info -->
-        <div class="sec">
-          <div class="st">QSL Info</div>
-          <p style="color:#b8c8dc;font-size:14px">QSL via <strong>direct</strong> or <strong>bureau</strong>. LoTW · eQSL · QRZ logbook uploaded after every operating session.</p>
         </div>
 
       </div><!-- /.mc -->
@@ -478,7 +613,6 @@
           <h3>Contact</h3>
           <ul class="cl">
             <li><a href="mailto:hello@k1ttl.net">hello@k1ttl.net</a></li>
-            <li><a href="https://www.qrz.com/db/K1TTL">qrz.com/db/K1TTL</a></li>
           </ul>
         </div>
 
